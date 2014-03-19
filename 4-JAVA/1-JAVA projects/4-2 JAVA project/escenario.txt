@@ -1,0 +1,41 @@
+# Esto es un comentario que no se procesa
+# Las líneas vacías también son ignoradas
+
+# Declaración del escenario
+
+# Dimensiones del escenario
+escenario ancho 10
+escenario alto 10
+
+# Tiempo de juego en segundos
+escenario tiempo 30
+
+# Periodo de notificación del temporizador en milisegundos
+escenario temporizador 150
+
+# Periodo para el lanzamiento de elementos en milisegundos
+escenario lanzamiento 2000
+
+# Declaración de los elementos iniciales
+# Todos los elementos tienen masa 1
+elemento basico (0, 7)
+elemento basico (0, 6)
+
+elemento estatico (4, 5)
+elemento estatico (8, 1)
+elemento estatico (8, 8)
+
+# Para los elementos deslizantes se indica la orientación de deslizamiento
+elemento deslizante (9, 6) izquierda
+elemento deslizante (5, 6) derecha
+elemento deslizante (6, 6) derecha
+elemento deslizante (7, 6) derecha
+
+# Para la bomba se indica el número de segundos para la explosión
+elemento bomba (6, 0) 5
+
+# Para la nube se indica la orientación de movimiento
+elemento nube (0, 8) derecha
+
+elemento huevo (4, 9)
+elemento huevo (4, 0)

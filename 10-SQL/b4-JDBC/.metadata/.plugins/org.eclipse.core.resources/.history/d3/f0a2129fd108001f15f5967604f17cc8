@@ -1,0 +1,335 @@
+import java.sql.*;
+
+/*
+ 
+CREATE TABLE MIEDITORIAL	AS SELECT * FROM EDITORIAL;
+CREATE TABLE MILIBRO		AS SELECT * FROM LIBRO;
+CREATE TABLE MIPUBLICACION  AS SELECT * FROM PUBLICACION;
+CREATE TABLE MIAUTOR		AS SELECT * FROM AUTOR;
+CREATE TABLE MILIBRO_AUTOR  AS SELECT * FROM LIBRO_AUTOR;
+CREATE TABLE MITEMA			AS SELECT * FROM TEMA;
+CREATE TABLE MIARTICULO     AS SELECT * FROM ARTICULO;
+
+ */
+
+public class b4 {
+	
+	/**
+	 * @param args
+	 */
+
+	private Connection connection;
+
+	private String serverName = "oracle10.inf.um.es";
+	private String portNumber = "1521";
+	private String sid = "orcl10g";
+	private String username = "usuario";
+	private String password = "clave";
+	private Savepoint sv1;
+
+	private Connection initDB() {
+
+		connection = null;
+		sv1 = null;
+		try {
+			// Load the JDBC driver
+			String driverName = "oracle.jdbc.driver.OracleDriver";
+			Class.forName(driverName);
+
+			// Create a connection to the database
+
+			String url = "jdbc:oracle:thin:@" + serverName + ":" + portNumber
+					+ ":" + sid;
+
+			connection = DriverManager.getConnection(url, username, password);
+		} catch (ClassNotFoundException e) {
+			System.out.println(e.toString());// Could not find the database driver
+		} catch (SQLException e) {
+			System.out.println(e.toString());
+			// Could not connect to the database
+		}
+		System.out.println(connection.toString());
+		return connection;
+
+	}
+
+	public b4() {
+
+		connection = null;
+
+	}
+
+	private void consulta1() {
+		// Mostrar la denominación de los temas
+		try {
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM MITEMA");
+			//		  Procesa los resultados
+
+			while (rs.next()) {
+				String denominacion = rs.getString("denominacion");
+				System.out.println("Denominacion: " + denominacion);
+			}
+			rs.close();
+			stmt.close();
+		} catch (Exception e) {
+			System.out.println(e.toString());
+			// Could not connect to the database
+		}		
+	}
+	
+	private void J11(String fecha1, String fecha2){
+		try{
+			Statement stmt= connection.createStatement();
+			ResultSet rs= stmt.executeQuery("SELECT * FROM publicacion WHERE f_publicacion>="+fecha1+" AND f_publicacion<="+fecha2+" GROUP BY libro");
+			//Procesa los resultados
+			while (rs.next()){
+				String libro= rs.getString("libro");
+				System.out.println("libro: "+ libro);
+			}
+			rs.close();
+			stmt.close();
+		} catch (Exception e){
+			System.out.println(e.toString());
+			//Could no connect to the database
+		}
+	}
+	private void J12(String aut){
+		try{
+			Statement stmt= connection.createStatement();
+			ResultSet rs= stmt.executeQuery("SELECT * FROM articulo WHERE autor="+aut+" ORDER BY f_creacion");
+			//Procesa los resultados
+			while(rs.next()){
+				String articulo= rs.getString("articulo");
+				String f_creacion= rs.getString("f_creacion");
+				System.out.println("articulo: "+ articulo+", f_creacion: "+f_creacion);
+			}
+		}catch(Exception e){
+			System.out.println(e.toString());
+			//could no connect to the database
+		}
+	}
+	private void J2(String aut, String lib){
+		try{
+			connection.setAutoCommit(false);
+
+			PreparedStatement updateLibro_autor = connection.prepareStatement("UPDATE libro_autor SET es_principal= 'S' WHERE autor= '"+aut+"' AND libro= '"+lib+"';");
+			updateLibro_autor.executeUpdate();
+			connection.commit();
+			connection.setAutoCommit(true);
+			updateLibro_autor.close();			
+			/*
+			Statement stmt= connection.createStatement();
+			ResultSet rs= stmt.executeQuery("SELECT autor, libro FROM libro_autor WHERE autor="+aut+" AND libro="+lib);
+			*/
+			while(rs.next()){
+				String autor= rs.getString("autor");
+				String libro= rs.getString("libro");
+				
+			}
+		}catch(Exception e){
+			System.out.println(e.toString());
+		}
+	}
+	private void consulta2() {
+		// Mostrar temas y libros sobre dichos temas
+		try {
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt
+					.executeQuery("SELECT T.tema, T.denominacion, L.titulo FROM MITEMA T,MILIBRO L where T.tema=L.tema ORDER BY T.tema");
+			//		  Procesa los resultados
+
+			while (rs.next()) {
+				String denominacion = rs.getString("denominacion");
+				String titulo = rs.getString("titulo");
+				System.out.println("Tema:" + denominacion + " Libro: " + titulo);
+			}
+			rs.close();
+			stmt.close();
+
+		} catch (Exception e) {
+			System.out.println(e.toString());
+			// Could not connect to the database
+		}
+	}
+
+
+		private void consulta2reves() {
+		// Mostrar autores de articulos
+		try {
+			Statement stmt = connection
+					.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+							ResultSet.CONCUR_UPDATABLE);
+			ResultSet rs = stmt
+					.executeQuery("SELECT autor, titulo FROM MIARTICULO");
+			//		  Procesa los resultados
+			rs.afterLast();
+			while (rs.previous()) {
+				String autor = rs.getString("autor");
+				String articulo = rs.getString("titulo");
+				System.out.println("Autor:" + autor + " Articulo: " + articulo);
+			}
+			rs.close();
+			stmt.close();
+
+		} catch (Exception e) {
+			System.out.println(e.toString());
+			// Could not connect to the database
+		}
+	}
+
+		private void consultaActualizable() {
+			// Modificar precio de las publicaciones
+			Statement stmt;
+			try {
+				stmt = connection.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
+				ResultSet rs = stmt.executeQuery("SELECT publicacion, editorial, libro, precio FROM MIPUBLICACION");
+				//		  Procesa los resultados
+
+				while (rs.next()) {
+					String publicacion = rs.getString("publicacion");
+					String editorial = rs.getString("editorial");
+					String libro = rs.getString("libro");
+					int precio = rs.getInt("precio");
+					System.out.println("Publicacion:" + publicacion + " Editorial: " + editorial + " Libro: " + libro + " Precio:" + precio);
+					rs.updateInt("precio", precio+100);
+					rs.updateRow(); //Ojo, sino lo hacemos y nos movemos se pierde la actualización.
+					if (rs.isLast()) {
+						rs.deleteRow(); // Ver mensaje de error y explicar por qué!
+					}
+				}
+				rs.close();
+				stmt.close();
+
+			} catch (Exception e) {
+				System.out.println(e.toString());
+				// Could not connect to the database
+			}
+		}
+
+
+		
+	private void consultaParametrizada() {
+		String query = "SELECT publicacion FROM MIPUBLICACION WHERE editorial=?";
+		// Mostrar publicaciones de una editorial
+		try {
+
+			PreparedStatement stmt = connection.prepareStatement(query);
+			String value = "E1";
+			stmt.setString(1, value);
+
+			ResultSet rs = stmt.executeQuery();
+			//			  Procesa los resultados
+			while (rs.next()) {
+				String publicacion = rs.getString("publicacion");
+				System.out.println("Publicacion: " + publicacion);
+			}
+			rs.close();
+			stmt.close();
+
+		} catch (Exception e) {
+			System.out.println(e.toString());
+			// Could not connect to the database
+		}
+	}
+	private void J3(int numeroLibros){
+		String libro, autor, editorial;
+		
+		
+	}
+	public void transacciones1() {
+		try {
+			connection.setAutoCommit(false);
+
+			PreparedStatement updateArticulo = connection.prepareStatement("UPDATE MIARTICULO SET f_creacion= ? WHERE articulo= ?");
+			updateArticulo.setDate(1, new Date(System.currentTimeMillis()));
+			updateArticulo.setString(2, "R2");
+			updateArticulo.executeUpdate();
+			PreparedStatement updateArticulo2 = connection.prepareStatement("UPDATE MIARTICULO SET f_creacion= ? WHERE articulo= ?");
+			updateArticulo2.setDate(1, new Date(System.currentTimeMillis()));
+			updateArticulo2.setString(2, "R5");
+			updateArticulo2.executeUpdate();
+			connection.commit();
+			connection.setAutoCommit(true);
+			updateArticulo.close();
+			updateArticulo2.close();
+		} catch (Exception e) {
+			
+			System.out.println(e.toString());
+
+		}
+	}
+
+	public void transacciones2() {
+		try {
+
+			connection.setAutoCommit(false);
+			
+			PreparedStatement updateArticulo = connection.prepareStatement("UPDATE MIARTICULO SET f_creacion= ? WHERE articulo= ?");
+			updateArticulo.setDate(1, new Date(System.currentTimeMillis()));
+			updateArticulo.setString(2, "R3");
+			updateArticulo.executeUpdate();
+			sv1 = connection.setSavepoint("SV1");
+			PreparedStatement updateArticulo2 = connection.prepareStatement("UPDATE MIARTICULO SET f_creacion= ? WHERE articulo= ?");
+			updateArticulo2.setDate(1, new Date(System.currentTimeMillis()));
+			updateArticulo2.setString(2, "R6");
+			updateArticulo2.executeUpdate();
+			connection.rollback(sv1);
+			connection.commit();
+			connection.setAutoCommit(true);
+			updateArticulo.close();
+			updateArticulo2.close();
+
+		} catch (Exception e) {
+			System.out.println(e.toString());
+
+		}
+	}
+
+	public void ejecutaConsultas() {
+		System.out.println("···························································");
+		System.out.println("···························································");
+		System.out.println("Ejecutando consulta 1:");
+		//consulta1();
+		System.out.println("···························································");
+		System.out.println("···························································");
+		System.out.println("Ejecutando consulta 2:");
+		//consulta2();
+		System.out.println("···························································");
+		System.out.println("···························································");
+		System.out.println("Ejecutando consulta 3: al reves");
+		//consulta2reves();
+		System.out.println("···························································");
+		System.out.println("···························································");
+		System.out.println("Ejecutando consulta 4: actualizable");
+		//consultaActualizable();
+		System.out.println("···························································");
+		System.out.println("···························································");
+		System.out.println("Ejecutando consulta 5: parametrizada");
+		//consultaParametrizada();
+		System.out.println("···························································");
+		System.out.println("···························································");
+		System.out.println("Ejecutando transaccion 1");
+		//transacciones1();
+		System.out.println("···························································");
+		System.out.println("···························································");
+		System.out.println("Ejecutando transaccion 2");
+		transacciones2();
+		System.out.println("···························································");
+		System.out.println("···························································");
+		try {
+			connection.close();
+		} catch (Exception e) {
+			System.out.println(e.toString());
+
+		}
+
+	}
+
+	public static void main(String[] args) {
+		b4 miBD = new b4();
+		miBD.initDB();
+		System.out.println("OK");
+		miBD.ejecutaConsultas();
+	}
+}

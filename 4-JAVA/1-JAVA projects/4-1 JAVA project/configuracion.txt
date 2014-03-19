@@ -1,0 +1,39 @@
+# Esto es un comentario que no se procesa
+# Las líneas vacías también son ignoradas
+
+# Declaración del escenario. 
+
+# Número de plantas y dimensiones 
+
+escenario plantas 2
+escenario x 9
+escenario y 9
+
+# Periodo de notificación del temporizador en milisegundos
+
+escenario temporizador 400
+
+# Porcentaje de casillas visibles en una planta
+
+escenario visibilidad 20
+
+# Casillas especiales: tipo (planta, x, y)
+
+casilla hueco (0, 8, 1)
+casilla muelle (0, 8, 0)
+casilla aleatoria (0, 1, 3)
+
+casilla hueco (1, 4, 1)
+casilla muelle (1, 3, 3)
+casilla aleatoria (1, 4, 3)
+
+# Elementos: tipo (planta, x, y)
+
+elemento antorcha_arriba (0, 1, 1)
+elemento visor (0, 1, 2)
+elemento vidente (0, 8, 8)
+elemento loco (0, 6, 6)
+
+elemento compuesta (1, 3, 5)
+elemento antorcha_abajo (1, 4, 7)
+elemento visor (1, 0, 0)

@@ -1,0 +1,170 @@
+SQL> start b1-01
+
+ninguna fila seleccionada
+
+SQL> start b1-02
+
+AUTOR F_NACIMIENTO                                                                                                      
+----- ---------------                                                                                                   
+A4    03/02/70                                                                                                          
+
+SQL> start b1-03
+
+LIBRO DENOMINACION_TEMA    FECHA_CREACION                                                                               
+----- -------------------- ---------------                                                                              
+L1    TEMA 1               15/01/90                                                                                     
+L2    TEMA 1               15/02/90                                                                                     
+L9    TEMA 1               17/10/92                                                                                     
+R1    TEMA 1               05/05/98                                                                                     
+R4    TEMA 1               15/03/99                                                                                     
+R10   TEMA 1               16/04/99                                                                                     
+L3    TEMA 2               15/03/91                                                                                     
+L10   TEMA 2               20/10/93                                                                                     
+R2    TEMA 2               03/03/98                                                                                     
+R5    TEMA 2               20/03/99                                                                                     
+L5    TEMA 3               20/05/92                                                                                     
+L4    TEMA 3               15/04/93                                                                                     
+L6    TEMA 3               25/06/94                                                                                     
+R3    TEMA 3               15/03/95                                                                                     
+R6    TEMA 3               25/03/96                                                                                     
+L7    TEMA 4               30/07/95                                                                                     
+R7    TEMA 4               30/06/96                                                                                     
+L8    TEMA 5               01/09/92                                                                                     
+R8    TEMA 5               30/09/96                                                                                     
+R9    TEMA 5               01/06/98                                                                                     
+
+20 filas seleccionadas.
+
+SQL> start b1-04
+
+TEMA  DENOMINACION                                                                                                      
+----- --------------------                                                                                              
+T11   TEMA 11                                                                                                           
+T121  TEMA 121                                                                                                          
+T122  TEMA 122                                                                                                          
+T131  TEMA 131                                                                                                          
+T1321 TEMA 1321                                                                                                         
+T2    TEMA 2                                                                                                            
+T31   TEMA 31                                                                                                           
+T32   TEMA 32                                                                                                           
+T411  TEMA 411                                                                                                          
+T5    TEMA 5                                                                                                            
+
+10 filas seleccionadas.
+
+SQL> start b1-05
+
+TEMA_PADRE   DENOMINACION         CUANTOS_HIJOS                                                                         
+------------ -------------------- -------------                                                                         
+T4           TEMA 4                           1                                                                         
+T1           TEMA 1                           3                                                                         
+T13          TEMA 13                          2                                                                         
+T132         TEMA 132                         1                                                                         
+T3           TEMA 3                           2                                                                         
+T12          TEMA 12                          2                                                                         
+T41          TEMA 41                          1                                                                         
+
+7 filas seleccionadas.
+
+SQL> start b1-06
+
+TEMA  DENOMINACION_DEL_TEMA   TEMA_PADRE    DENOMINACION_DEL_TEMA_PADRE                                                 
+----- ----------------------- ------------- ------------------------------                                              
+T11   TEMA 11                 T1            TEMA 1                                                                      
+T12   TEMA 12                 T1            TEMA 1                                                                      
+T121  TEMA 121                T12           TEMA 12                                                                     
+T122  TEMA 122                T12           TEMA 12                                                                     
+T13   TEMA 13                 T1            TEMA 1                                                                      
+T131  TEMA 131                T13           TEMA 13                                                                     
+T132  TEMA 132                T13           TEMA 13                                                                     
+T1321 TEMA 1321               T132          TEMA 132                                                                    
+T31   TEMA 31                 T3            TEMA 3                                                                      
+T32   TEMA 32                 T3            TEMA 3                                                                      
+T41   TEMA 41                 T4            TEMA 4                                                                      
+T411  TEMA 411                T41           TEMA 41                                                                     
+
+12 filas seleccionadas.
+
+SQL> start b1-07
+
+LIBRO NOMBRE_DEL_AUTOR                                                                                                  
+----- ----------------                                                                                                  
+L1    A1                                                                                                                
+L4    A4                                                                                                                
+L6    A10                                                                                                               
+
+SQL> start b1-08
+
+AUTOR CUANTOS_PRINCIPAL CUANTOS_NO_PRINCIPAL CUANTOS_TOTAL                                                              
+----- ----------------- -------------------- -------------                                                              
+A1                    2                    0             2                                                              
+A10                   1                    0             1                                                              
+A2                    1                    1             2                                                              
+A3                    1                    1             2                                                              
+A4                    2                    2             4                                                              
+A5                    1                    0             1                                                              
+A6                    0                    2             2                                                              
+A7                    0                    0             0                                                              
+A8                    0                    1             1                                                              
+A9                    0                    0             0                                                              
+
+10 filas seleccionadas.
+
+SQL> start b1-09
+
+AUTOR NOMBRE                  CUANTOS                                                                                   
+----- -------------------- ----------                                                                                   
+A2    AUTOR 2                       2                                                                                   
+A10   AUTOR 10                      1                                                                                   
+A7    AUTOR 7                       0                                                                                   
+A9    AUTOR 9                       0                                                                                   
+
+SQL> start b1-10
+
+EDITORIAL                                                                                                               
+----------                                                                                                              
+E4                                                                                                                      
+
+SQL> start b1-11
+
+LIBRO EDITORIAL  CUANTAS_VECES                                                                                          
+----- ---------- -------------                                                                                          
+L10   E4                     5                                                                                          
+
+SQL> start b1-12
+
+LIBRO TITULO               CUANTAS_VECES FECHA_ULTIMA_PUBLICACION                                                       
+----- -------------------- ------------- --------------------------                                                     
+L1    LIBRO 1                          4 15/05/99                                                                       
+L10   LIBRO 10                         5 25/04/99                                                                       
+L2    LIBRO 2                          0                                                                                
+L3    LIBRO 3                          3 20/06/98                                                                       
+L4    LIBRO 4                          2 05/09/95                                                                       
+L5    LIBRO 5                          1 10/09/95                                                                       
+L6    LIBRO 6                          1 15/10/95                                                                       
+L7    LIBRO 7                          1 20/10/95                                                                       
+L8    LIBRO 8                          1 20/09/96                                                                       
+L9    LIBRO 9                          1 25/09/96                                                                       
+
+10 filas seleccionadas.
+
+SQL> start b1-13
+
+TEMA  DENOMINACION         CUANTOS_ARTICULOS                                                                            
+----- -------------------- -----------------                                                                            
+T1    TEMA 1                               3                                                                            
+
+SQL> start b1-14
+
+ARTICULO                                                                                                                
+--------                                                                                                                
+R3                                                                                                                      
+R2                                                                                                                      
+
+SQL> start b1-15
+
+EDITORIAL                                                                                                               
+----------                                                                                                              
+E5                                                                                                                      
+
+SQL> spool off

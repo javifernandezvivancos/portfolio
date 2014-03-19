@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry path="src" kind="src"/>
+	<classpathentry path="test" kind="src"/>
+	<classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER" kind="con"/>
+	<classpathentry path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3.8.1" kind="con"/>
+	<classpathentry path="C:/Documents and Settings/Guadalupe/Mis documentos/15483621-K-practicas-poo-e2/15483621K-practica-poo-e2/lib/muelles-vista.jar" kind="lib"/>
+	<classpathentry path="C:/Documents and Settings/Guadalupe/Mis documentos/15483621-K-practicas-poo-e2/15483621K-practica-poo-e2/lib/muelles-configuracion.jar" kind="lib"/>
+	<classpathentry path="bin" kind="output"/>
+</classpath>

@@ -1,0 +1,4 @@
+Project 1:
+3D Beach coded on VPython-Win-Py2.5-5.03
+For this project I coded a 3D scene using linear algebra: Bezier and CatMull-Rom algorithms to draw the shape of every line used on trees, the fountain... The fountain is made by rotating a line around a central point. Also I coded a fractal algorithm to draw a mountain with different shapes each time the program is executed.
+I also include 3 pictures where the scene can be seen from different points of view.

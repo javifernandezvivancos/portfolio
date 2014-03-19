@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>uSports | Social Sports Planner</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="./css/app.css" rel="stylesheet" media="screen">
+</head>
+
+<!-- creating new event --->
+<div style="width:200px; margin: 100px; auto;">
+				<form id="newevent-form" accept-charset="UTF-8">
+						<label class="string" for="name">Event Name</label>
+				  		<input id="first" type="text" name="first" size="30" />
+						<label class="string" for="name">Sport Name</label>
+				  		<select>
+                        <option>soccer</option>
+                        <option>golf</option>
+                        <option>football</option>
+                        </select>
+						<label class="string" for="email">Date of event</label>
+					  	<input id="email" type="text" name="email" size="50" />
+						<label class="string" for="pass">Starting time</label>
+				  		<select style="width:80px;">
+                        <option>12:05</option>
+                        <option>01:00</option>
+                        <option>01:30</option>
+                        <option>02:00</option>
+                        <option>02:30</option>
+                        <option>03:00</option>
+                        <option>03:30</option>
+                        <option>04:00</option>
+                        <option>04:30</option>
+                        <option>05:00</option>
+                        <option>05:30</option>
+                        <option>06:00</option>
+                        <option>06:30</option>
+                        <option>07:00</option>
+                        <option>07:30</option>
+                        <option>08:00</option>
+                        <option>08:30</option>
+                        <option>09:00</option>
+                        <option>09:30</option>
+                        <option>10:00</option>
+                        <option>10:30</option>
+                        <option>11:00</option>
+                        <option>11:30</option>
+                        </select>
+                        	<select style="width:60px;">
+                         <option>pm</option>
+                        <option>am</option>
+                        </select>
+						<label class="string" for="pass">Ending time</label>
+				  		<select style="width:80px;">
+                        <option>12:05</option>
+                        <option>01:00</option>
+                        <option>01:30</option>
+                        <option>02:00</option>
+                        <option>02:30</option>
+                        <option>03:00</option>
+                        <option>03:30</option>
+                        <option>04:00</option>
+                        <option>04:30</option>
+                        <option>05:00</option>
+                        <option>05:30</option>
+                        <option>06:00</option>
+                        <option>06:30</option>
+                        <option>07:00</option>
+                        <option>07:30</option>
+                        <option>08:00</option>
+                        <option>08:30</option>
+                        <option>09:00</option>
+                        <option>09:30</option>
+                        <option>10:00</option>
+                        <option>10:30</option>
+                        <option>11:00</option>
+                        <option>11:30</option>
+                        </select>
+                        	<select style="width:60px;">
+                         <option>pm</option>
+                        <option>am</option>
+                        </select>
+						<label class="string" for="pass">Min Age</label>
+				  		<input id="pass" style="width:80px;" type="text" name="pass" size="30" />
+						<label class="string" for="pass">Max Age</label>
+				  		<input id="pass" style="width:80px;" type="text" name="pass" size="30" />
+						<label class="string" for="pass">Address</label>
+				  		<input id="pass" type="text" name="text" size="30" />
+						<label class="string" for="pass">Zipcode</label>
+				  		<input id="pass" type="text" name="text" size="30" />
+						<label class="string" for="pass">Game type</label>
+				  		 </select>
+                        	<select style="width:80px;">
+                         <option>Teams</option>
+                        <option>Tournment</option>
+                        </select>
+						<label class="string" for="pass">Min-players</label>
+				  		<select style="width:80px;">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        </select>
+						<label class="string" for="pass">Max-players</label>
+                        	<select style="width:80px;">
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        </select>
+						<label class="string" for="pass">Target range within</label>
+                        	<select style="width:80px;">
+                        <option>20</option>
+				  		<option>40</option>
+                        <option>60</option>
+                        <option>80</option>
+                        <option>100</option>
+                        <option>120</option>
+                        <option>140</option>
+                        <option>160</option>
+                        <option>180</option>
+                        <option>200</option>
+                       		 </select> miles
+						<label class="string" for="pass">Registration type</label>
+				  		<select style="width:160px;">
+                        <option>individuals only</option>
+				  		<option>teams only</option>
+                        <option>any</option>
+                        </select>
+					<input class="btn-signup btn btn-inverse" type="submit" value="new event"/>
+					<hr>
+				</form>
+                </div>
+    <!-- new event ends here -->
+
+	<script src="./js/vendor/jquery.min.js"></script>
+	<script src="./js/vendor/jquery.cookie.js"></script>
+	<script src="./js/vendor/bootstrap.min.js"></script>
+	<script src="./js/vendor/bootswatch.js"></script>
+	<script src="./js/vendor/underscore.min.js"></script>
+	<script src="./js/vendor/backbone.js"></script>
+	<script src="./js/templates.js"></script>
+	<script data-main="js/app" src="js/vendor/require.js"></script>
+</body>
+</html>
+
+
+
+
+
+

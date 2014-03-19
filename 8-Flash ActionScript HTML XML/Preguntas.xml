@@ -1,0 +1,332 @@
+<preguntas>
+	<pregunta>
+		<id>1</id>	
+  	    <nivel>1</nivel>
+		<url>Pregunta1.mp3</url>
+		<texto>¿De que deporte es el balon que se escucha en el audio?</texto>
+		<opcion_correcta>1</opcion_correcta>
+		<opcion0>Tenis</opcion0>
+		<opcion1>Baloncesto</opcion1>
+		<opcion2>Golf</opcion2>
+		<opcion3>Ping Pong</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>2</id>	
+  	    <nivel>1</nivel>
+		<url>Pregunta2.mp3</url>
+ 		<texto>¿Que estamos escuchando en estos momentos?</texto>
+		<opcion_correcta>2</opcion_correcta>
+		<opcion0>Un partido de futbol</opcion0>
+		<opcion1>Un pleno de bolos</opcion1>
+		<opcion2>Una corrida de toros</opcion2>
+		<opcion3>Un salto de esqui</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>3</id>	
+  	    <nivel>1</nivel>
+		<url>Pregunta3.mp3</url>
+		<texto>¿Quien fue el campeon de la Champions en la temporada 2006-2007?</texto>
+		<opcion_correcta>0</opcion_correcta>
+		<opcion0>A. C. Milan</opcion0>
+		<opcion1>F. C. Barcelona</opcion1>
+		<opcion2>Real Madrid</opcion2>
+		<opcion3>Shalke 04</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>4</id>	
+  	    <nivel>1</nivel>
+		<url>Pregunta4.mp3</url>
+		<texto>¿A que equipo de futbol le cantan sus aficionados, cuando los jugadores salen al campo, el famosisimo himno "You'll never walk alone"?</texto>
+		<opcion_correcta>3</opcion_correcta>
+		<opcion0>Los Angeles Galaxy</opcion0>
+		<opcion1>Recreativo de Huelva</opcion1>
+		<opcion2>F. C. Basel</opcion2>
+		<opcion3>Liverpool F. C.</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>5</id>	
+  	    <nivel>1</nivel>
+		<url>Pregunta5.mp3</url>
+		<texto>¿Cuantas bolos se situan en la ultima fila de los 10 bolos que hay que derribar?</texto>
+		<opcion_correcta>0</opcion_correcta>
+		<opcion0>4</opcion0>
+		<opcion1>5</opcion1>
+		<opcion2>6</opcion2>
+		<opcion3>10</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>6</id>	
+  	    <nivel>1</nivel>
+		<url>Pregunta6.mp3</url>
+		<texto>¿En que deporte de motor ha ganado el español Fernando Alonso?</texto>
+		<opcion_correcta>2</opcion_correcta>
+		<opcion0>Nascar Racing</opcion0>
+		<opcion1>24 Horas de Le Mans</opcion1>
+		<opcion2>Mundial de Formula 1</opcion2>
+		<opcion3>Moto GP</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>7</id>	
+  	    <nivel>1</nivel>
+		<url>Pregunta7.mp3</url>
+		<texto>¿En que deporte hay que sacar la bola del campo para conseguir un Home Run?</texto>
+		<opcion_correcta>1</opcion_correcta>
+		<opcion0>Curling</opcion0>
+		<opcion1>Beisbol</opcion1>
+		<opcion2>Voleibol</opcion2>
+		<opcion3>Futbol Sala</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>8</id>	
+  	    <nivel>1</nivel>
+		<url>Pregunta8.mp3</url>
+		<texto>¿Que celebre golfista español se apoda "El niño"?</texto>
+		<opcion_correcta>3</opcion_correcta>
+		<opcion0>Severiano Ballesteros</opcion0>
+		<opcion1>Jose Maria Olazabal</opcion1>
+		<opcion2>Fernando Torres</opcion2>
+		<opcion3>Sergio Garcia</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>9</id>	
+  	    <nivel>1</nivel>
+		<url>Pregunta9.mp3</url>
+		<texto>¿Cuales son las medidas de una piscina olimpica (LARGOxANCHO)?</texto>
+		<opcion_correcta>2</opcion_correcta>
+		<opcion0>50x50</opcion0>
+		<opcion1>25x50</opcion1>
+		<opcion2>50x25</opcion2>
+		<opcion3>50x15</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>10</id>	
+  	    <nivel>1</nivel>
+		<url>Pregunta10.mp3</url>
+		<texto>En billar americano bola 8, al meter en uno de los agujeros ¿que bola perderias directamente la partida a no ser que ya hayas metido todas tus bolas anteriores?</texto>
+		<opcion_correcta>0</opcion_correcta>
+		<opcion0>La bola numero 8</opcion0>
+		<opcion1>La bola blanca</opcion1>
+		<opcion2>La bola numero 15</opcion2>
+		<opcion3>La bola azul</opcion3>
+	</pregunta>	
+	<pregunta>
+		<id>11</id>	
+  	    <nivel>2</nivel>
+ 	    <url>ajedrezTerm.flv</url>
+		<texto>Uno de los requisitos que se deben cumplir para poder realizar el movimiento de ajedrez denominado como enroque es que...</texto>
+		<opcion_correcta>1</opcion_correcta>
+		<opcion0>No se haya recibido ningun jaque</opcion0>
+		<opcion1>No se haya movido al rey antes</opcion1>
+		<opcion2>No se hayan realizado 4 movimientos</opcion2>
+		<opcion3>Se puede realizar siempre</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>12</id>	
+  	    <nivel>2</nivel>
+ 	    <url>BaloncestoTerm.flv</url>
+		<texto>¿Ha ocurrido algo fuera de lo normal en este vídeo?</texto>
+		<opcion_correcta>0</opcion_correcta>
+		<opcion0>Si, un oso haciendo el moonwalking</opcion0>
+		<opcion1>Si, a Pau Gasol</opcion1>
+		<opcion2>No, 13 pases del equipo blanco</opcion2>
+		<opcion3>Si, una persona ha caido al suelo</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>13</id>	
+  	    <nivel>2</nivel>
+ 	    <url>RedBullTerm.flv</url>
+		<texto>En el video aparece un fragmento de la final de la Red Bull Breakdancing Championship de 2005 (Red bull B.C.One),la mas prestigiosa competicion mundial de Breakdance... ¿Quien la gano?</texto>
+		<opcion_correcta>0</opcion_correcta>
+		<opcion0>Lilou</opcion0>
+		<opcion1>Hong 10</opcion1>
+		<opcion2>Storm</opcion2>
+		<opcion3>Pelezinho</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>14</id>	
+  	    <nivel>2</nivel>
+ 	    <url>rallyTerm.flv</url>
+		<texto>¿Quien ha sido el primer piloto español en ganar el Dakar?</texto>
+		<opcion_correcta>0</opcion_correcta>
+		<opcion0>Nani Roma</opcion0>
+		<opcion1>Marc Coma</opcion1>
+		<opcion2>Carlos Sainz</opcion2>
+		<opcion3>Colin Mc Rae</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>15</id>	
+  	    <nivel>2</nivel>
+ 	    <url>alonsoDivx.flv</url>
+		<texto>¿Cuantos campeonatos del mundo ha ganado Fernando Alonso?</texto>
+		<opcion_correcta>1</opcion_correcta>
+		<opcion0>1</opcion0>
+		<opcion1>2</opcion1>
+		<opcion2>3</opcion2>
+		<opcion3>Ninguno</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>16</id>	
+  	    <nivel>2</nivel>
+ 	    <url>NadiaTerm.flv</url>
+		<texto>¿Quien fue la primera gimnasta en lograr la puntuacion perfecta, 10, en una competicion olimpica?</texto>
+		<opcion_correcta>0</opcion_correcta>
+		<opcion0>Nadia Comaneci</opcion0>
+		<opcion1>Larissa Latynina</opcion1>
+		<opcion2>Yelena Davidora</opcion2>
+		<opcion3>Carly Patterson</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>17</id>	
+  	    <nivel>2</nivel>
+ 	    <url>NietoTerm.flv</url>
+		<texto>¿Quien fue el único piloto ganador de 13 campeonatos mundiales de motociclismo?</texto>
+		<opcion_correcta>1</opcion_correcta>
+		<opcion0>Sito pons</opcion0>
+		<opcion1>Angel nieto</opcion1>
+		<opcion2>Valentino Rossi</opcion2>
+		<opcion3>Alex Criville</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>18</id>	
+  	    <nivel>2</nivel>
+ 	    <url>koreaTermin.flv</url>
+		<texto>¿Contra quién perdio España en el mundial Corea-Japon de 2002?</texto>
+		<opcion_correcta>1</opcion_correcta>
+		<opcion0>Francia</opcion0>
+		<opcion1>Corea</opcion1>
+		<opcion2>Alemania</opcion2>
+		<opcion3>Brasil</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>19</id>	
+  	    <nivel>2</nivel>
+ 	    <url>skate.flv</url>
+		<texto>la persona que aparece en el video fue la primera en realizar el espectacular 900º, y es considerado el/la mejor skater del mundo en rampa (half pipe),  ¿quien es?</texto>
+		<opcion_correcta>2</opcion_correcta>
+		<opcion0>Steve Caballero</opcion0>
+		<opcion1>Rodney Mullen</opcion1>
+		<opcion2>Tony Hawk</opcion2>
+		<opcion3>Elissa Steamer</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>20</id>	
+  	    <nivel>2</nivel>
+ 	    <url>TenisTerm.flv</url>
+		<texto>¿Cual de ellos gano el individual masculino de Roland Garros 2007</texto>
+		<opcion_correcta>0</opcion_correcta>
+		<opcion0>Rafael Nadal</opcion0>
+		<opcion1>Roger Federer</opcion1>
+		<opcion2>Carlos Moya</opcion2>
+		<opcion3>Andy Roddick</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>21</id>	
+  	    <nivel>3</nivel>
+ 	    <url>pregunta21.jpg</url>
+		<texto>¿Que celebre jugador de la NBA se llamaba en realidad "Ferdinand Lewis Alcindor"?</texto>
+		<opcion_correcta>1</opcion_correcta>
+		<opcion0>Julius Erving</opcion0>
+		<opcion1>Kareem Abdul-Jabbar</opcion1>
+		<opcion2>"Pistol Pete" Maravich</opcion2>
+		<opcion3>Karl Malone</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>3</id>	
+  	    <nivel>22</nivel>
+ 	    <url>pregunta22.jpg</url>
+		<texto>¿Que equipo gano el campeonato de NHL en la temporada 2006-2007?</texto>
+		<opcion_correcta>3</opcion_correcta>
+		<opcion0>Pittsburg Penguins</opcion0>
+		<opcion1>Tampa Bay Lightning</opcion1>
+		<opcion2>Colorado Avalanche</opcion2>
+		<opcion3>Anaheim Ducks</opcion3>
+	</pregunta>	
+	<pregunta>
+		<id>23</id>	
+  	    <nivel>3</nivel>
+ 	    <url>pregunta23.jpg</url>
+		<texto>¿Cuántos pies mide de largo una pista de Curling?</texto>
+		<opcion_correcta>2</opcion_correcta>
+		<opcion0>126 pies</opcion0>
+		<opcion1>136 pies</opcion1>
+		<opcion2>146 pies</opcion2>
+		<opcion3>156 pies</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>24</id>	
+  	    <nivel>3</nivel>
+ 	    <url>pregunta24.jpg</url>
+		<texto>¿Cuál es el deporte más practicado oficialmente (por número de licencias) en el mundo?</texto>
+		<opcion_correcta>0</opcion_correcta>
+		<opcion0>Voleibol</opcion0>
+		<opcion1>Fútbol</opcion1>
+		<opcion2>Baloncesto</opcion2>
+		<opcion3>Atletismo</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>25</id>	
+  	    <nivel>3</nivel>
+ 	    <url>pregunta25.jpg</url>
+		<texto>¿En qué año fichó Ronaldo de Assis Moreira (Ronaldinho) por el Paris Saint Germain?</texto>
+		<opcion_correcta>2</opcion_correcta>
+		<opcion0>1999</opcion0>
+		<opcion1>2000</opcion1>
+		<opcion2>2001</opcion2>
+		<opcion3>2002</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>26</id>	
+  	    <nivel>3</nivel>
+ 	    <url>pregunta26.jpg</url>
+		<texto>¿Cuál es el segundo apellido del famoso ciclista español Joseba Beloki?</texto>
+		<opcion_correcta>3</opcion_correcta>
+		<opcion0>Aguirrebeña</opcion0>
+		<opcion1>Zuberogoitia</opcion1>
+		<opcion2>Mutuberria</opcion2>
+		<opcion3>Dorronsoro</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>27</id>	
+  	    <nivel>3</nivel>
+ 	    <url>pregunta27.jpg</url>
+		<texto>¿En qué posición quedó el Club Atlético Voleibol Murcia 2005 en la Final Four de la Liga de Campeones 2007- 2008?</texto>
+		<opcion_correcta>2</opcion_correcta>
+		<opcion0>Tercero</opcion0>
+		<opcion1>Campeón</opcion1>
+		<opcion2>Cuarto</opcion2>
+		<opcion3>Subcampeón</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>28</id>	
+  	    <nivel>3</nivel>
+ 	    <url>pregunta28.jpg</url>
+		<texto>¿Quién ha sido el campeón del Europeo 2008 de balonmano?</texto>
+		<opcion_correcta>0</opcion_correcta>
+		<opcion0>Dinamarca</opcion0>
+		<opcion1>Croacia</opcion1>
+		<opcion2>Alemania</opcion2>
+		<opcion3>Francia</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>29</id>	
+  	    <nivel>3</nivel>
+ 	    <url>pregunta29.jpg</url>
+		<texto>¿Cuántos campeonatos individuales del Grand Slam ha ganado el gran rival de Rafael Nadal, Roger Federer (sin contar el año 2008)?</texto>
+		<opcion_correcta>2</opcion_correcta>
+		<opcion0>10</opcion0>
+		<opcion1>11</opcion1>
+		<opcion2>12</opcion2>
+		<opcion3>13</opcion3>
+	</pregunta>
+	<pregunta>
+		<id>30</id>	
+  	    <nivel>3</nivel>
+ 	    <url>pregunta30.jpg</url>
+		<texto>¿Cuántas victorias logró Fernando Alonso en su primer año como piloto en Renault en el Mundial de Fórmula 1 de 2003?</texto>
+		<opcion_correcta>1</opcion_correcta>
+		<opcion0>0</opcion0>
+		<opcion1>1</opcion1>
+		<opcion2>2</opcion2>
+		<opcion3>3</opcion3>
+	</pregunta>
+</preguntas>

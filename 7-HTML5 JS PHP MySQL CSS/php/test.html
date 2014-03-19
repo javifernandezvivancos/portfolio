@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>uSports | Social Sports Planner</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="../js/vendor/jquery.min.js"></script>
+	<script src="../js/vendor/underscore.min.js"></script>
+	
+	<script type="text/template" id="list-item">
+		<li style="display:inline;">
+			<label for="name<%= num %>">Name: </label>
+			<input type="text" id="name<%= num %>"/>
+			
+			<label for="value<%= num %>">Value: </label>
+			<input type="text" id="value<%= num %>"/>
+		</li>
+		<br>
+	</script>
+</head>
+<body>
+	<h1>Use this to test api.php</h1>
+	
+	<div style="display:inline;">
+		<label for="request">Request Type: </label>
+		<input type="text" id="request" value="POST"/>
+		
+		<label for="script">Script: </label>
+		<input type="text" id="script" value="users"/>
+		
+		<label for="action">Action: </label>
+		<input type="text" id="action" value="get_user"/>
+		
+		<button id="add-param">Add Parameter</button>
+	</div>
+	
+	<ul id="parameters" style="list-style:none;"></ul>
+	
+	<button id="send">Send</button>
+	
+	<br><br>
+	<div id="response"></div>
+	
+	
+	<script>
+		var btn = $('#add-param'), num = 0;
+		btn.click(function(e){
+			var tmpl = $('#list-item').html();
+			$('#parameters').append(_.template(tmpl, {num:num++}));
+		});
+		
+		var send = $('#send');
+		send.click(function(e){
+			//Request type, script to use, and action to call
+			var params = {
+				script:$('#script').val(),
+				action:$('#action').val()
+			};
+			
+			//Parse params
+			for(i = 0; i < num; i++)
+				params[$('#name'+i).val()] = $('#value'+i).val();
+			console.log('Sending:');
+			console.log(params);
+			//Send XMLHTTPRequest
+			$.ajax({
+				url:'api.php',
+				type:$('#request').val(),
+				data:params,
+				success:function(e){
+					$('#response').html(e);
+					console.log($.parseJSON(e));
+				},
+				error:function(e){
+					console.log('ERROR!');
+					console.log(e);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

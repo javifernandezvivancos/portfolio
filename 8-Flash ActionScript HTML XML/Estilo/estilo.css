@@ -1,0 +1,65 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	background-color: #999999;
+	background-image: url(../1174_Puente-en-la-ciudad.jpg);
+	text-indent: 20px;
+}
+
+td {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+th {
+	font-family: Arial, Helvetica, sans-serif;
+}h1 {
+	font-weight: bold;
+	color: #CC3300;
+}
+#Layer1 {
+	position:absolute;
+	left:29px;
+	top:76px;
+	width:289px;
+	height:94px;
+	z-index:1;
+}
+a:link {
+	color: #0000FF;
+}
+a:visited {
+	color: #CC3300;
+}
+a:hover {
+	color: #CC3300;
+}
+#Layer2 {
+	position:absolute;
+	left:153px;
+	top:210px;
+	width:739px;
+	height:225px;
+	z-index:2;
+}
+#Layer3 {
+	position:absolute;
+	left:372px;
+	top:74px;
+	width:270px;
+	height:100px;
+	z-index:3;
+}
+#Layer4 {
+	position:absolute;
+	left:722px;
+	top:69px;
+	width:274px;
+	height:107px;
+	z-index:4;
+}
+.Estilo3Copia {
+font-weight: bold
+}
+.Estilo4Copia {
+color: #66FF33
+}

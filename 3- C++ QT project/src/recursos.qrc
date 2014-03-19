@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>imagenes/logo.bmp</file>
+        <file>imagenes/abrir.png</file>
+        <file>imagenes/guardar.png</file>
+        <file>imagenes/nuevo.png</file>
+        <file>imagenes/linea.png</file>
+        <file>imagenes/punto.png</file>
+        <file>imagenes/seleccionar.png</file>
+        <file>imagenes/elipse.png</file>
+        <file>imagenes/poligono.png</file>
+        <file>imagenes/rectangulo.png</file>
+        <file>imagenes/rellenar.png</file>
+        <file>imagenes/logo.gif</file>
+    </qresource>
+</RCC>

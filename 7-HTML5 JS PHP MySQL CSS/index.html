@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>uSports | Social Sports Planner</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="./css/app.css" rel="stylesheet" media="screen">
+	
+	<!-- Reusable templates for Bootstrap CSS -->
+	
+	<!-- id, header, body -->
+	<script type="text/template" id="modal-form-template">
+		<div id="<%= id %>-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+				<h3 id="modal-label"><%= header %></h3>
+			</div>
+			<div class="modal-body"><%= body %></div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+				<button class="btn btn-primary <%= id %>-btn">Submit</button>
+			</div>
+		</div>
+	</script>
+	
+	<!-- id, title, content -->
+	<script type="text/template" id="section-template">
+		<section id="<%= id %>">
+			<div class="page-header"><h2><%= title %></h2></div>
+			<%= content %>
+		</section>
+	</script>
+	
+	<script type="text/template" id="table-template">
+		<table class="table">
+			<thead><tr><% _.each(table.headers, function(header) { %><th><%= header %></th><% }); %></tr></thead>
+			<tbody>
+				<% _.each(table.rows, function(row) { %>
+					<tr class="<%= row.cls %>"><% _.each(row.data, function(data){ %><td><%= data %></td><% }); %></tr>
+				<% }); %>
+			</tbody>
+		</table>
+	</script>
+	
+	<!-- <div class="subnav" data-spy="affix" data-offset-top="305">
+		<ul class="nav nav-pills">
+			<li class="active"><a href="#<%= user.username %>"><%= user.username %></a></li>
+			<% _.each(sections, function(sect){ %>
+				<li><a href="<%= sect.id %>"><%= sect.title %></a></li>
+			<% }); %>
+		</ul>
+	</div> -->
+	
+	<script type="text/template" id="teams-form-template">
+		<form class="teams-form" accept-charset="utf8">
+			<label class="string inline" for="teamname">Team Name: </label>
+			<input class="input-large inline" id="teamname"/>
+		</form>
+	</script>
+	
+	<script type="text/template" id="events-form-template">
+		<form class="events-form" accept-charset="utf8">
+			<label class="string inline" for="eventname">Event Name: </label>
+			<input class="input-large inline" id="eventname"/>
+		</form>
+	</script>
+	
+	<script type="text/template" id="event-profile-template">
+		<div class="container">
+			<h1 class="pad-top pad-bottom"><%= title %></h1>
+		</div>
+	</script>
+	
+	<!-- USER TEMPLATES -->
+	<script type="text/template" id="team-profile-template">
+		<header class="jumbotron subhead team-header">
+			<h1 class="pad-bottom pad-top"><%= team.teamname %></h1>
+			<div id="team-<%= team.id %>" class="row">
+				<div class="span3"><img class="team-img" src="./img/team.jpg"/></div>
+			</div>
+		</header>
+		<div class="container">
+			<%= _.template($('#section-template').html(), {id:'players', title:'Players', content:_.template($('#table-template').html(), {table:players})}) %>
+		</div>
+	</script>
+	
+	<!-- USER TEMPLATES -->
+	<script type="text/template" id="user-profile-template">
+		<%= _.template($('#user-header-template').html(), {user:user}) %>
+		<div class="container">
+			<% _.each(sections, function(sect){
+				var section = _.template($('#table-template').html(), {table:sect.viewData}) %>
+				<section id="<%= sect.id %>">
+					<div class="page-header" style="padding-bottom:60px;">
+						<h1 class="pull-left"><%= sect.title %></h1>
+						<% if(sect.action != undefined) { sect.modal.body = _.template($('#'+sect.id+'-form-template').html(), {}); %>							
+							<a class="pull-right btn-<%= sect.id %>-action" data-toggle="modal" href="#<%= sect.id %>-form-modal"><%= sect.action %></a>
+							<%= _.template($('#modal-form-template').html(), sect.modal) %>
+						<% } %>
+					</div>
+					<%= section %>
+				</section>
+			<% }); %>
+		</div>
+	</script>
+	
+	<script type="text/template" id="user-settings-template">		
+		<%= _.template($('#user-header-template').html(), {user:user}) %>
+	</script>
+	
+	<script type="text/template" id="user-header-template">
+		<header class="jumbotron subhead user-header">
+			<h1 class="pad-bottom pad-top"><%= user.firstname %> <%= user.lastname %></h1>
+			<div id="<%= user.id %>" class="row">
+				<div class="span3"><img class="user-img" src="./img/user.jpg"/></div>
+				<div class="user-overview-list span5">
+					<p class="muted">Sports: <%= user.sports %></p><br>
+					<p class="muted">Location: <%= user.location %></p><br>
+					<p class="muted">Age: <%= user.age %></p><br>
+				</div>
+				<ul class="user-btns span3">
+					<li><a id="settings-user-btn" class="btn btn-warning btn-large">Settings</a></li>
+				</ul>
+			</div>
+		</header>
+	</script>
+	
+	<script type="text/template" id="user-overview-template">
+		<form class="form-inline">
+			<label for="user-sports-setting" class="muted">Sports: </label>
+			<input id="user-sports-setting" value="<%= user.sports %>">
+		</form>
+		<form class="form-inline">
+			<label for="user-location-setting" class="muted">Location: </label>
+			<input id="user-sports-setting" value="<%= user.city %>">
+		</form>
+		<form class="form-inline">
+			<label for="user-birthdate-setting" class="muted">Birthdate: </label>
+			<input id="user-birthdate-setting" value="<%= user.age %>">
+		</form>
+	</script>
+	
+	<script type="text/template" id="user-btns-template">
+		<% if(view == 'other') { %>
+			<li><a id="friend-user-btn" class="btn btn-success">Friend Player</a></li>
+			<li><a id="invite-user-btn" class="btn btn-inverse">Invite to Event</a></li>
+		<% } else if(view == 'settings') { %>
+			<li><a id="save-user-btn" class="btn btn-primary btn-large">Save</a></li>
+		<% } %>
+	</script>
+	
+	
+	<script type="text/template" id="sports-view-template">
+		<div class="container">
+		<% _.each(data, function(view, index){ %>
+			<% var newRow = index%3 == 0; %>
+			<% if(newRow) { %><div class='row-fluid sports-row'><% } %>
+			
+			<div class='span4 sports-widget'>
+				<img src='./img/<%= view.img %>'/>
+			</div>
+			
+			<% if(newRow) { %><div><% } %>
+		<% }); %>
+		</div>
+	</script>
+	
+	<script type="text/template" id="home-template">
+		<div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="./img/ultimate-frisbee.jpg" alt="Ultimate Frisbee">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Plan Local Sports Events</h1>
+              <p class="lead">Easily plan and manage sporting events with other local players.</p><br>
+              <a id="profile-link" class="btn btn-large btn-primary" href="">Find Events</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./img/youth-soccer.jpg" alt="Soccer">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Everyone Plays</h1>
+              <p class="lead">Whether you have a team or just want to play a pick-up game, uSports makes it easy for players of all skill levels to plan events.</p><br>
+              <a class="btn btn-large btn-primary" href="#">Find Players</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">></a>
+    </div>
+	<div class="container">
+		<div class="row-fluid">
+			<div class="span4">
+				<p>Sport is all forms of usually competitive physical activity which, through casual or organised participation, aim to use, maintain or improve physical ability and skills while providing entertainment to participants, and in some cases, spectators. Hundreds of sports exist, from those requiring only two participants, through to those with hundreds of simultaneous participants, either in teams or competing as individuals.
+
+</p>
+			</div>			
+			<div class="span4">
+				<p>Sport is all forms of usually competitive physical activity which, through casual or organised participation, aim to use, maintain or improve physical ability and skills while providing entertainment to participants, and in some cases, spectators. Hundreds of sports exist, from those requiring only two participants, through to those with hundreds of simultaneous participants, either in teams or competing as individuals.</p>
+			</div>			
+			<div class="span4">
+				<p>Sport is all forms of usually competitive physical activity which, through casual or organised participation, aim to use, maintain or improve physical ability and skills while providing entertainment to participants, and in some cases, spectators. Hundreds of sports exist, from those requiring only two participants, through to those with hundreds of simultaneous participants, either in teams or competing as individuals.</p>
+			</div>
+		</div>
+	</div>
+	</script>
+	
+	<script type="text/template" id="search-template">
+		<div class="search-bar">
+			<form action="javascript:void(0)" method="post" accept-charset="UTF-8">
+				<label class="string inline" for="radius">Radius  </label>
+			  <select id="search-radius" class="inline" type="text" name="radius">
+					<option>10 miles</option>
+					<option>25 miles</option>
+					<option>50 miles</option>
+					<option>100 miles</option>
+				</select>
+
+			  <input class="btn btn-inverse search-submit" type="submit" name="commit" value="Search" />
+			</form>
+		</div>
+		<div class="search-view">
+			<h2><%= search %></h2>
+		</div>
+	</script>
+	
+	<!-- User Login Dropdown -->
+	<script type="text/template" id="user-dropdown-template">
+		<% if(user == undefined) {%>
+		<a class="dropdown-toggle sign-in" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+		<div class="dropdown-menu user-dropdown-view">
+			<form id="login-form" accept-charset="UTF-8">
+				<label class="string" for="login-email">Email Address</label>
+				<input id="login-email" style="margin-bottom: 15px;" type="text" name="email" size="30" />
+				<label class="string" for="login-password">Password</label>
+				<input id="login-password" style="margin-bottom: 15px;" type="password" name="password" size="30" />
+				<input id="remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="remember_me" value="1" />
+				<label class="string optional" for="remember_me"> Remember me</label>
+
+				<button class="btn btn-primary user-login-btn" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit">Sign In</button>
+			</form>
+    	</div>
+		<% }else{ %>
+			<li class="dropdown">
+				<a class="dropdown-toggle sign-in" href="#" data-toggle="dropdown">
+					<%= user.firstname %> <%= user.lastname %> <strong class="caret"></strong>
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a href="#profile">Profile</a></li>
+				  <li class="divider"></li>
+				  <li><a href="#logout">Logout</a></li>
+				</ul>
+			</li>
+		<% } %>
+	</script>
+	
+	<script type="text/template" id="user-signup-template">
+		<div class="signup">
+			<div class="signup-view">
+				<h2>Welcome to uSports!</h2>
+				<form id="signup-form" accept-charset="UTF-8">
+						<label class="string" for="name">First Name</label>
+				  		<input id="first" type="text"/>
+						<label class="string" for="name">Last Name</label>
+				  		<input id="last" type="text" size="30" />
+						<label class="string" for="email">Email Address</label>
+					  	<input id="email" type="text"/>
+						<label class="string" for="pass">Password</label>
+				  		<input id="pass" type="password"/>
+					<input class="btn-signup btn btn-inverse" type="submit" value="Sign Up"/>
+					<hr>
+				</form>
+			</div>
+		</div>
+	</script>
+ 
+	
+</head>
+<body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container content-navbar">
+				<a class="brand" href="#">uSports</a>
+		  	<ul class="nav" id="dynamic-navbar"></ul>
+				<form class="navbar-search">
+					<input type="text" name="search" class="search-query span4" placeholder="Search" x-webkit-speech>
+				</form>
+				<ul class="nav pull-right" id="user-dropdown"></ul>
+			</div>
+		</div>
+	</div>
+	
+	<div class="content-container"></div>
+	
+	<footer class="footer">
+		<div class="container">
+			<p>Envisioned, designed, and developed by West Virginia University students for CS 430</p>
+			<ul class="footer-links">
+				<li><a href="https://github.com/hboylan/usports" target="blank">GitHub</a></li>
+				<li class="muted">&middot;</li>
+				<li><a href="http://www.wvu.edu" target="blank">WVU</a></li>
+			</ul>
+		</div>
+	</footer>
+
+	<script src="./js/vendor/jquery.min.js"></script>
+	<script src="./js/vendor/jquery.cookie.js"></script>
+	<script src="./js/vendor/bootstrap.min.js"></script>
+	<script src="./js/vendor/bootswatch.js"></script>
+	<script src="./js/vendor/underscore.min.js"></script>
+	<script src="./js/vendor/backbone.js"></script>
+	<script src="./js/functions.js"></script>
+	<script src="./js/templates.js"></script>
+	<script data-main="js/app" src="js/vendor/require.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>15483621K-practica-poo-e2</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>configuracion.txt</name>
+			<type>1</type>
+			<location>C:/home/alumno/C::/Mis documentos/Universidad/Programacin orientada a objetos/prcticas/entregas/practica 1/15482513V-practica-poo-e1/configuracion.txt</location>
+		</link>
+	</linkedResources>
+</projectDescription>
